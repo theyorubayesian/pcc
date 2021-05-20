@@ -1,0 +1,11 @@
+*.pdf
+.env*
+/.idea
+/.ipynb_checkpoints
+/.pytest_cache
+/.vscode
+*__pycache__
+*.pyc
+/data
+/logs
+/models
