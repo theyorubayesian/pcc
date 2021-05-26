@@ -2,6 +2,7 @@
 Test suite for Churn Prediction system
 
 Author: theyorubayesian
+26 May 2021
 """
 import unittest
 import logging

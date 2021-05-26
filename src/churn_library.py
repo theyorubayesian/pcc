@@ -2,6 +2,7 @@
 Helper functions for Churn Prediction
 
 Author: theyorubayesian
+26 May 2021
 """
 from typing import Tuple
 import os
