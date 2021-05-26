@@ -1,0 +1,15 @@
+name: pcc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - shap
+  - jupyter
+  - pip:
+      - autopep8
+      - pylint
+prefix: /opt/homebrew/Caskroom/miniforge/base/envs/pcc
