@@ -1,0 +1,6 @@
+root - INFO - Testing `encoder helper`: SUCCESS
+root - INFO - Testing `evaluate_model`: SUCCESS
+root - INFO - Testing `import_data`: SUCCESS
+root - INFO - Testing `perform_eda`: SUCCESS
+root - INFO - Testing `perform_feature_engineering`: SUCCESS
+root - INFO - Testing `train_model`: SUCCESS

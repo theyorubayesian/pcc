@@ -1,3 +1,9 @@
+"""
+CLI for Churn Prediction System
+See README.md for details on components of system
+
+Author: theyorubayesian
+"""
 import argparse
 
 from src.churn_library import import_data
@@ -27,6 +33,15 @@ KEEP_COLS = [
     'Income_Category_Churn', 'Card_Category_Churn'
 ]
 
+TEST_SIZE = 0.3
+
+PARAM = {
+        'n_estimators': [200, 500],
+        'max_features': ['auto', 'sqrt'],
+        'max_depth': [4, 5, 100],
+        'criterion': ['gini', 'entropy']
+    }
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -39,15 +54,16 @@ if __name__ == "__main__":
 
     encoded_df = encoder_helper(df, CAT_COLS)
     X_train, X_test, y_train, y_test = \
-        perform_feature_engineering(encoded_df, keep_columns=KEEP_COLS)
+        perform_feature_engineering(encoded_df, keep_columns=KEEP_COLS, test_size=TEST_SIZE)
 
-    models = train_models(X_train, X_test, y_train, y_test)
+    models = train_models("models", X_train, X_test, y_train, param_grid=PARAM)
     evaluate_model(
         models["Logistic Regression"]["model"],
         "Logistic_Regression",
         X_test,
         (y_train, y_test),
         models["Logistic Regression"]["predictions"],
+        output_dir="images/results",
         explain=False
     )
     evaluate_model(
@@ -56,5 +72,6 @@ if __name__ == "__main__":
         X_test,
         (y_train, y_test),
         models["Random Forest"]["predictions"],
+        output_dir="images/results",
         explain=True
     )

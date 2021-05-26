@@ -6,6 +6,3 @@
 /.vscode
 *__pycache__
 *.pyc
-/data
-/logs
-/models
